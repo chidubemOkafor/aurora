@@ -1,0 +1,104 @@
+.topbar {
+    height: 2px;
+    width: 30px;
+    border-radius: 10px;
+    background-color: #6EEB83;
+}
+
+.main_div {
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    color: #6EEB83;
+    font-family: DM Serif Display;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.p1 {
+    color: #FFF;
+    font-family: Lexend Deca;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    
+}
+
+.p2 {
+    color: #6EEB83;
+    font-family: Lexend Deca;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.p3 {
+    color: #FFF;
+    text-align: right;
+    font-family: Lexend Deca;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    width: 73px;
+    height: 74px;
+    flex-shrink: 0;
+    margin-bottom: 80px;
+
+}
+
+.tag {
+    color: #FFF;
+    font-family: Lexend Deca;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    transform: rotate(-90deg);
+}
+
+.blog_post_content {
+    display: flex;
+    gap: 0;
+    justify-content: center;
+    margin-top: 3em;
+}
+
+.blog_div {
+    width: 60em
+}
+
+.data_username {
+    gap: -2
+}
+
+.tag_content {
+    color: #6EEB83;
+font-family: Lexend Deca;
+font-size: 13px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+width: 116px;
+height: 30px;
+flex-shrink: 0;
+border-radius: 100px;
+border: 1px solid #6EEB83;
+background: rgba(110, 235, 131, 0.00);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.hashtag {
+    display: flex;
+    gap: 1em;
+    margin-top: 1em;
+}
