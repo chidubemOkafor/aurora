@@ -1,7 +1,5 @@
-
-
 .sidebar_container {
-    width: 5rem;
+    width: 95px;
     height: 100vh;
     flex-shrink: 0;
     position: fixed;
@@ -20,11 +18,11 @@
 }
 
 .sidebar {
-    border: 2px solid #6EEB83;
+    border: 1px solid #6EEB83;
     border-left: none;
     border-top: none;
     border-bottom: none;
-    background: black;
+    background: #272727;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -51,7 +49,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 4em;
+    gap: 2em;
     
 }
 
@@ -78,4 +76,19 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+/* tablet */
+
+/* Media Query for Tablets and Smaller Screens */
+@media (max-width: 1024px) {
+    .sidebar_container {
+      width: 95px;
+      background-color: red;
+    }
+  
+    .sidebar {
+      flex-direction: row; /* Change to column layout */
+    }
+  
 }

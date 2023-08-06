@@ -1,0 +1,33 @@
+.p4 {
+  color: #A5A5A5;
+  font-family: Lexend Deca;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  width: 16rem;
+}
+
+.blog_header_div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 1em;
+}
+
+.realblog_main {
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-top: 61px;
+  padding-bottom: 5em;
+}
+
+.realblog_master {
+  display: flex;
+  width: 99.348vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

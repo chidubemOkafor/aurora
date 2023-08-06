@@ -1,0 +1,120 @@
+.login_and_signup_main {
+    display: flex;
+}
+
+.login_and_signup_background_image {
+    background-image: url("../../../assets/pawel-czerwinski-JEV7CrJTUNE-unsplash 1.png");
+    width: 45vw;
+    height: 100vh;
+    border: 5px solid #6EEB83;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inside {
+    background: rgba(39, 39, 39, 0.28);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.p6 {
+    color: white;
+    font-family: Lexend Deca;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    transform: rotate(-90deg);
+}
+
+.main_form_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+   
+}
+
+.superh2 {
+    color: #FFF;
+    font-family: DM Serif Display;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em
+}
+
+input {
+    border: 1px solid #6EEB83;
+    background: #272727;
+    width: 500px;
+    height: 50px;
+    flex-shrink: 0;
+    color: #A5A5A5;
+    font-family: Lexend Deca;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    color: white;
+    padding-left: 20px;
+}
+
+input:focus {
+    outline: none;
+    border-color: initial;
+    box-shadow: none;
+}
+
+.buttondiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.submit {
+    width: 160px;
+    height: 50px;
+    flex-shrink: 0;
+    background: #6EEB83;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    font-family: Lexend Deca;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.login_span {
+    color: #6EEB83;
+    font-family: Lexend Deca;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.form_div {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2em;
+}
+
+.p1_container {
+    width: 17em;
+}

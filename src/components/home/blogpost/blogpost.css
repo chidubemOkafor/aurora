@@ -1,6 +1,6 @@
 .topbar {
-    height: 2px;
-    width: 30px;
+    height: 3px;
+    width: 25px;
     border-radius: 10px;
     background-color: #6EEB83;
 }
@@ -91,7 +91,7 @@ height: 30px;
 flex-shrink: 0;
 border-radius: 100px;
 border: 1px solid #6EEB83;
-background: rgba(110, 235, 131, 0.00);
+background: rgba(0, 0, 0, 0);
 display: flex;
 justify-content: center;
 align-items: center;
@@ -100,5 +100,29 @@ align-items: center;
 .hashtag {
     display: flex;
     gap: 1em;
-    margin-top: 1em;
+    margin-top: 1.5em;
+}
+
+.title {
+    color: #FFF;
+font-family: Lexend Deca;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+}
+
+.title_container {
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+/* tablet */
+
+@media (max-width: 1024px) {
+    
 }

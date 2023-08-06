@@ -8,5 +8,39 @@
 
 h3 {
   font-family: 'DM Serif Display';
+  color: #6EEB83;
+font-family: DM Serif Display;
+font-size: 40px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 }
 
+/* Style the scrollbar track */
+::-webkit-scrollbar {
+    width: 5px; /* width of the scrollbar */
+  }
+  
+  /* Style the scrollbar thumb (the draggable part) */
+  ::-webkit-scrollbar-thumb {
+    background-color: #fefefe; /* color of the thumb */
+    border-radius: 2px; /* round the edges of the thumb */
+  }
+  
+  /* Style the scrollbar track when the thumb is being hovered */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #fffefe; /* change color on hover */
+  }
+  
+  /* Style the scrollbar track when it's not in the visible area */
+  ::-webkit-scrollbar-track {
+    background-color: #1f1f1f;
+    border-radius: 15px;  /* color of the track */
+  }
+  
+  /* Style the scrollbar corner where vertical and horizontal scrollbars meet */
+  ::-webkit-scrollbar-corner {
+    background-color: #f0f0f0;
+    border-radius: 15px; 
+    /* color of the corner */
+  }
