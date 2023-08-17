@@ -5,6 +5,7 @@ import Home from './pages/home/Home';
 import BlogPost from './pages/blogpost/BlogPost';
 import Signup from './pages/signup/Signup';
 import Login from './pages/login/Login';
+import Profile from './pages/profile/Profile';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Router>
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/Profile' element={<Profile/>}/>
             <Route path='/blogpost' element={<BlogPost />} />
             <Route path='/signup' element={<Signup/>} />
             <Route path='/login' element={<Login/>} />

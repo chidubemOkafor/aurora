@@ -15,6 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .sidebar {
@@ -57,6 +58,7 @@
     width: 40px;
     height: 40px;
     color: #6EEB83;
+    cursor: pointer;
 }
 
 .uptrend {
@@ -76,6 +78,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    cursor: pointer;
 }
 
 /* tablet */
