@@ -1,0 +1,21 @@
+.banner {
+    width: 100vw;
+    background-color: blue;
+    height: 15em;
+    border: 2px solid #6EEB83;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    display: flex;
+    justify-content: center;
+}
+
+.profile_picture {
+    width: 15em;
+    height: 15em;
+    border-radius: 100%;
+    background-color: yellow;
+    position: absolute;
+    margin-top: 9em;
+    border: 3px solid #6EEB83;
+}
