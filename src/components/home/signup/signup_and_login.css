@@ -118,3 +118,47 @@ input:focus {
 .p1_container {
     width: 17em;
 }
+
+.notification {
+    background-color: #6EEB83;
+    display: flex;
+    padding: 18px;
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    animation: 0.3s slide-in ease-out;
+}
+
+.notification_error {
+    background-color:  #FF5E5B;
+    gap: 2em;
+    display: flex;
+    padding: 18px;
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    animation: 0.3s slide-in ease-out;
+}
+
+.notification div {
+    width: 15em;
+} 
+
+.bell {
+    width: 40px;
+    height: 40px
+}
+
+.inner_noti {
+    display: flex;
+}
+
+@keyframes slide-in {
+    0% {
+      transform: translateY(-200%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  

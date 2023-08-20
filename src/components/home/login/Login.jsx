@@ -1,29 +1,45 @@
-import React,{useState} from 'react'
+import React,{useState, useContext} from 'react'
 import "../signup/signup_and_login.css"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from "axios"
-const Login = () => {
+import { IsLoggedinContext } from '../../../contexts/myContexts'
+import Loginnotif from './Loginnotif'
+import Errornotif from './Errornotif'
 
+const Login = () => {
+  const navigate = useNavigate()
+  const {loggedIn, setLoggedIn} = useContext(IsLoggedinContext)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   
-  async function login () {
-   const data = {
+  async function login() {
+    const data = {
       email: email,
-      password: password
-    }
+      password: password,
+    };
+
     try {
-      const response = await axios.post("http://localhost:8090/api/login",data)
-      if(response.data.message == 'login successful') {
-         
+      const response = await axios.post("http://localhost:8090/api/login", data, {
+        withCredentials: true, // Include cookies in the request
+      });
+
+      if (response.data.message === "login successful") {
+        setLoggedIn(true);
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+      } else {
+        console.log("not logged in");
       }
-      }catch(e){
-        console.error(e)
-      }
+    } catch (error) {
+      console.error(error);
+    }
   }
+
  
   return (
     <div className='login_and_signup_main'>
+    {loggedIn ? <Loginnotif/>: <Errornotif/>}
       <div className='login_and_signup_background_image'>
         <div className='inside'>
           <p className='p6'>Login</p>

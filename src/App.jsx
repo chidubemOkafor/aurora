@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { isLoggedinContext } from './contexts/myContexts';
+import { IsLoggedinContext } from './contexts/myContexts';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/home/Home';
 import BlogPost from './pages/blogpost/BlogPost';
@@ -9,21 +9,21 @@ import Profile from './pages/profile/Profile';
 import './App.css';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
 
   return (
     <div className='app'>
-      <isLoggedinContext.Provider value={{ loggedIn, setLoggedIn }}>
+      <IsLoggedinContext.Provider value={{ loggedIn, setLoggedIn }}>
         <Router>
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/Profile' element={<Profile/>}/>
+            <Route path='/profile' element={<Profile/>}/>
             <Route path='/blogpost' element={<BlogPost />} />
             <Route path='/signup' element={<Signup/>} />
             <Route path='/login' element={<Login/>} />
           </Routes>
         </Router>
-      </isLoggedinContext.Provider>
+      </IsLoggedinContext.Provider>
     </div>
   );
 }
