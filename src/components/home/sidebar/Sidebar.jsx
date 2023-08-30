@@ -1,14 +1,14 @@
-import {useContext} from 'react'
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 import "./sidebar.css"
-import {HiTrendingUp,HiOutlineSearch} from "react-icons/hi"
-import {IoMdAddCircleOutline} from "react-icons/io"
+import { HiTrendingUp, HiOutlineSearch } from "react-icons/hi"
+import { IoMdAddCircleOutline } from "react-icons/io"
 import { IsLoggedinContext } from '../../../contexts/myContexts';
 
 const Sidebar = () => {
-  //==============context=====================================
+  //========================context===========================//
   const {loggedIn, setLoggedIn} = useContext(IsLoggedinContext)
-  //==========================================================
+  //==========================================================//
   const navigate = useNavigate()
   const addBlog = () => {
     if(!loggedIn) {

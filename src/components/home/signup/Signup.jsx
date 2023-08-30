@@ -30,7 +30,7 @@ const Signup = () => {
       const response = await axios.post("http://localhost:8090/api/signup", data, {
         withCredentials: true
       })
-      if(response.data.message == "account created") {
+      if(response.data.message === "account created") {
         setLoggedIn(true)
         setTimeout(()=> {
           navigate("/")
