@@ -9,20 +9,23 @@ import Errornotif from './Errornotif'
 const Login = () => {
   const navigate = useNavigate()
   const {loggedIn, setLoggedIn} = useContext(IsLoggedinContext)
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [credentials, setCredentials] = useState({
+    email : "",
+    password: ""
+  })
+  // const [email, setEmail] = useState("")
+  // const [password, setPassword] = useState("")
   
   async function login() {
     const data = {
-      email: email,
-      password: password,
+      email: credentials.email,
+      password: credentials.password,
     };
 
     try {
       const response = await axios.post("http://localhost:8090/api/login", data, {
         withCredentials: true, // Include cookies in the request
       });
-
       if (response.data.message === "login successful") {
         setLoggedIn(true);
         setTimeout(() => {
@@ -34,6 +37,15 @@ const Login = () => {
     } catch (error) {
       console.error(error);
     }
+  }
+
+  const handleChange = (e) => {
+    const {name, value} = e.target
+    setCredentials((prevData) => ({
+      ...prevData,
+      [name]: value
+    }))
+    console.log(credentials)
   }
 
  
@@ -52,8 +64,8 @@ const Login = () => {
             <p className='p4'>Let's log you in quickly</p>
           </div>
           <form>
-             <input type='email' placeholder='Enter your email' onChange={(e) => setEmail(e.target.value)} />
-             <input type='password' placeholder='Enter password' onChange={(e) => setPassword(e.target.value)}/>
+             <input type='email' placeholder='Enter your email' name='email' value={credentials.email} onChange={handleChange} />
+             <input type='password' placeholder='Enter password' name='password' value={credentials.password} onChange={handleChange}/>
              <div className='buttondiv'>
              <button className='submit' type='button' onClick={login}>LOGIN</button>
              <div className='p1_container'><p className='p1'>don't have an account? <Link to={'/signup'}><span className='login_span'>Sign-up</span></Link></p></div>

@@ -14,17 +14,29 @@ const Signup = () => {
 //================================================================//
   const {loggedIn, setLoggedIn} = useContext(IsLoggedinContext)
 //================================================================//
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const {credentials, setCredentials} = useState({
+    user_name: "",
+    email: "",
+    password: "",
+  })
+
   const [LoginStatus, setLoginStatus] = useState(false)
 //================================================================//
+
+const handleChange = (e) => {
+  e.preventDefault();
+  const {name, value} = e.target;
+  setCredentials((prevData) => ({
+    ...prevData,
+    [name] : value
+  }))
+}
  
   const signin = async() => {
     const data = {
-      name: name,
-      email: email,
-      password: password
+      user_name,
+      email,
+      password
     }
     try {
       const response = await axios.post("http://localhost:8090/api/signup", data, {
@@ -60,9 +72,9 @@ const Signup = () => {
             <p className='p4'>Let’s sign you up quickly</p>
           </div>
           <form>
-             <input type='text' placeholder='Enter your name' value={name} onChange={(e) => setName(e.target.value)}/>
-             <input type='email' placeholder='Enter your email' value={email} onChange={(e) => setEmail(e.target.value)}/>
-             <input type='password' placeholder='Enter password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+             <input type='text' placeholder='Enter your name' value={credentials.user_name} name='user_name' onChange={handleChange}/>
+             <input type='email' placeholder='Enter your email' value={credentials.email} name='email' onChange={handleChange}/>
+             <input type='password' placeholder='Enter password' value={credentials.password} name='password' onChange={handleChange}/>
              <div className='buttondiv'>
              <button type='button' className='submit' onClick={signin}>SUBMIT</button>
              <div className='p1_container'><p className='p1'>already have an account? <Link to={'/login'}><span className='login_span'>log-in</span></Link></p></div>
