@@ -7,25 +7,31 @@ import Signup from './pages/signup/Signup';
 import Login from './pages/login/Login';
 import Profile from './pages/profile/Profile';
 import './App.css';
+import { AccountContext } from './contexts/myContexts';
+import CreatePost_page from './pages/createpost/CreatePost_page';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [account, setAccount] = useState({})
 
   return (
     <div className='app'>
-      <IsLoggedinContext.Provider value={{ loggedIn, setLoggedIn }}>
-        <Router>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/profile' element={<Profile/>}/>
-            <Route path='/blogpost' element={<BlogPost />} />
-            <Route path='/signup' element={<Signup/>} />
-            <Route path='/login' element={<Login/>} />
-          </Routes>
-        </Router>
-      </IsLoggedinContext.Provider>
+      <AccountContext.Provider value={{account, setAccount}}>
+        <IsLoggedinContext.Provider value={{ loggedIn, setLoggedIn }}>
+          <Router>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/profile' element={<Profile/>}/>
+              <Route path='/blogpost' element={<BlogPost />} />
+              <Route path='/signup' element={<Signup/>} />
+              <Route path='/login' element={<Login/>} />
+              <Route path='/createpost' element={<CreatePost_page/>} />
+            </Routes>
+          </Router>
+        </IsLoggedinContext.Provider>
+      </AccountContext.Provider>
     </div>
   );
-}
 
+  }
 export default App;

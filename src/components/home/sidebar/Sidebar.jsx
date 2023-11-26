@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import "./sidebar.css"
 import { HiTrendingUp, HiOutlineSearch } from "react-icons/hi"
 import { IoMdAddCircleOutline } from "react-icons/io"
@@ -34,11 +34,11 @@ const Sidebar = () => {
         </div>
         </div>
         
-        <div onClick={addBlog} className='dev'>
-          <IoMdAddCircleOutline className='circle'/>
+        <div className='dev'>
+          <Link to={'/createpost'}><IoMdAddCircleOutline className='circle'/></Link>
           <p>create</p>
         </div>
-   
+
         </div>
         </div>
     </div>

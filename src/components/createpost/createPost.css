@@ -1,0 +1,18 @@
+.editor {
+    width: 50rem;
+    margin-top: 3em;
+}
+
+.post_btn {
+    margin-top: 10px;
+    width: 50rem;
+}
+
+.tags {
+    display: grid;
+    margin-top: 10px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+    width: 50rem;
+}

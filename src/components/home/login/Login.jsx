@@ -5,6 +5,8 @@ import axios from "axios"
 import { IsLoggedinContext } from '../../../contexts/myContexts'
 import Loginnotif from './Loginnotif'
 import Errornotif from './Errornotif'
+import { auth } from '../../../../firebase_config/firebase_config'
+import {signInWithEmailAndPassword} from 'firebase/auth'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -17,12 +19,17 @@ const Login = () => {
   // const [password, setPassword] = useState("")
   
   async function login() {
-    const data = {
-      email: credentials.email,
-      password: credentials.password,
-    };
-
+      
     try {
+      const userCredentials = await signInWithEmailAndPassword(auth, credentials.email, credentials.password)
+      const user = userCredentials.user
+
+      if(!user) {
+        console.log("bad network")
+      }
+      const firebaseAccountId = user.uid
+      console.log(firebaseAccountId)
+
       const response = await axios.post("http://localhost:8090/api/login", data, {
         withCredentials: true, // Include cookies in the request
       });
