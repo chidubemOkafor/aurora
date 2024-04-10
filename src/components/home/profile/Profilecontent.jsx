@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Profile.css";
-import jwt from "jsonwebtoken";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { getCookie } from "./getCookie";
 
 const Profilecontent = () => {
   const navigate = useNavigate()
@@ -11,15 +9,11 @@ const Profilecontent = () => {
   useEffect(() => {
     (async () => {
       try {
-        const token = getCookie('token');
-        const decodetoken = jwt.decode(token);
-        const id = decodetoken.id;
-        console.log(id);
-        const response = await axios.get(`http://localhost:8090/api/getprofile/${id}`, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        // const response = await axios.get(`http://localhost:8090/api/getprofile/${id}`, {
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        // });
 
         if(response.data.message === "token does not exist or has expired") {
           navigate('/login')
