@@ -1,12 +1,11 @@
 import React,{useState,useContext,useEffect} from 'react'
 import "./signup_and_login.css"
 import { Link } from 'react-router-dom'
-import { IsLoggedinContext } from '../../../contexts/myContexts'
+import { IsLoggedinContext, AccountContext } from '../../../contexts/myContexts'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import {auth} from '../../../../firebase_config/firebase_config'
 import {createUserWithEmailAndPassword, getRedirectResult} from 'firebase/auth'
-import { AccountContext } from '../../../contexts/myContexts'
 import { AiOutlineLoading3Quarters } from "react-icons/ai"
 import Button from './Button'
 
@@ -15,7 +14,7 @@ const Signup = () => {
   const navigate = useNavigate()
 
 //================================================================//
-  const {account, setAccount} = useContext(AccountContext)
+  const {setAccount} = useContext(AccountContext)
   const {loggedIn, setLoggedIn} = useContext(IsLoggedinContext)
 //================================================================//
   const [credentials, setCredentials]= useState({
@@ -27,7 +26,6 @@ const Signup = () => {
   const [LoginStatus, setLoginStatus] = useState(false)
   const [inputError, setInputError] = useState("")
   const [isButtonDisabled, setIsButtonDisabled] = useState(false)
-  const [text, setText] = useState("")
 //================================================================//
 
 const handleChange = (e) => {
@@ -37,7 +35,6 @@ const handleChange = (e) => {
     ...prevData,
     [name] : value
   }))
-  console.log(credentials)
 }
 
 useEffect(() => {
@@ -96,17 +93,13 @@ useEffect(() => {
         setLoggedIn(true)
         setLoginStatus(true)
         setAccount({user_name: response.data.response.user_name, email: credentials.email})
-        console.log(account)
-        setTimeout(()=> {
+        setInterval(() => {
           navigate("/")
         },2000)
-      } else {
-        setStatus()
       }
     } catch(error) {
       if(error.code === "auth/email-already-in-use") {
         console.log("email already in use")
-        setText("email already exists")
         setInputError("email already exists")
       } else if (error.code === "auth/weak-password") {
         setInputError("invalid password")

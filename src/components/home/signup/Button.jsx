@@ -22,7 +22,7 @@ const Button = (prop) => {
     if (prop.action === "login") {
         return (
             <div>
-                <button className='google_button'><img src={googleIcon} className='google_icon' />{loading ? <img src={loadingAnimation} /> : "Login in with Google"}</button>
+                <button disabled={loading} className='google_button' onClick={authWithGoogle}>{loading ? <AiOutlineLoading3Quarters className='loading_style' /> : <><img src={googleIcon} className='google_icon' /> Login with Google</>}</button>
             </div>
         )
     }
