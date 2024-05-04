@@ -85,6 +85,13 @@ h2 {
     color: rgba(255, 255, 255, 0.7);
 }
 
+.truncColor{
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.blog_content{
+}
+
 .heroBlogPost {
     width: 50%;
     display: flex;
@@ -94,7 +101,7 @@ h2 {
 
 .blog_thumbnail {
     height: 20em;
-    width: 160em;
+    width: 50em;
     margin-right: 4em;
     background-size: cover;
     background-repeat: no-repeat;
@@ -113,7 +120,7 @@ h2 {
 
 .blog_thumbnail2 {
     height: 20em;
-    width: 160em;
+    width: 50em;
     margin-left: 4em;
     background-size: cover;
     background-repeat: no-repeat;
@@ -140,7 +147,7 @@ h2 {
     cursor: pointer;
 }
 
-.p3 {
+.p3, .p32 {
     color: #FFF;
     text-align: right;
     font-family: Lexend Deca;
@@ -154,6 +161,11 @@ h2 {
     margin-bottom: 80px;
 }
 
+.p32 {
+    text-align: left;
+    margin-left: 2em;
+}
+
 .tag {
     color: #FFF;
     font-family: Lexend Deca;
@@ -164,11 +176,20 @@ h2 {
     transform: rotate(-90deg);
 }
 
-.blog_post_content {
+
+.blog_post_content, .blog_post_content2 {
     display: flex;
-    gap: 0;
-    justify-content: center;
+    width: 50em;
+    padding: 0;
+    text-align: left;
 }
+
+.blog_post_content2 {
+    text-align: right;
+    justify-content: right;
+}
+
+
 
 .main_blog_container {
     display: flex;
@@ -183,24 +204,25 @@ h2 {
 }
 
 .data_username {
+    justify-content: right;
 }
 
 .tag_content {
     color: #6EEB83;
-font-family: Lexend Deca;
-font-size: 13px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-width: 116px;
-height: 30px;
-flex-shrink: 0;
-border-radius: 100px;
-border: 1px solid #6EEB83;
-background: rgba(0, 0, 0, 0);
-display: flex;
-justify-content: center;
-align-items: center;
+    font-family: Lexend Deca;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: 116px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 100px;
+    border: 1px solid #6EEB83;
+    background: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hashtag {

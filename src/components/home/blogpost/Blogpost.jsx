@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import HeroTrending from './HeroTrending'
 import AllBlogPosts from './AllBlogPosts'
 import axios from 'axios'
+import Truncate from './truncate'
 
 const Blogpost = () => {
     const [data, setData] = useState([])
@@ -12,8 +13,7 @@ const Blogpost = () => {
         const fetchPost = async() => {
             try {
                 const response = await axios.get("http://localhost:8090/api/v1/getPost?recent=true")
-                console.log(response.data.data)
-                setData(response)
+                setData(response.data.data)
             } catch (error) {
                 console.error(error)
             }
@@ -30,7 +30,7 @@ const Blogpost = () => {
             <div className='topbar'/>
                 <h3 className='title'>Latest</h3>
             </div>
-            <HeroTrending/>
+            <HeroTrending data={data}/>
             <div className='main_blog_container'>
                 <div className='data_username'>
                     <p className='p3'>
@@ -38,34 +38,30 @@ const Blogpost = () => {
                     </p>
                     <p className='tag'>@okaforChidex7</p>
                 </div>
-                <div  className='blog_thumbnail' style={{backgroundImage: "url(https://images.pexels.com/photos/356040/pexels-photo-356040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)"}}/>
+                <div  className='blog_thumbnail' style={{backgroundImage: `url(${data.length != 0 && data[3].preview})`}}/>
                 <div className='blog_post_content'>
-                    <div>
-                        <Link to={'/blogpost'}><h2 className='blog_title'>15 Disadvantages Of Freedom And How You Can Workaround It.</h2></Link>
-                        <p className='thumb_content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum <Link to={'/blogpost'}><span class="p2">...read more</span></Link></p>
+                    <div className='blog_content'>
+                        <Link to={'/blogpost'}><h2 className='blog_title'>{data.length != 0 && data[3].title}</h2></Link>
+                        <p className='thumb_content'><Truncate content={data.length != 0 && data[3].body}/><Link to={'/blogpost'}><span class="p2">...read more</span></Link></p>
                         <div className='hashtag'>
-                            <div className='tag_content'>#meditation</div>
-                            <div className='tag_content'>#mentalhealth</div>
-                            <div className='tag_content'>#food</div>
+                        {data.length != 0 && data[3].tag.map((tag) => (<div className='tag_content'>#{tag}</div>))}
                         </div>
                     </div>
                 </div>
             </div>
             <div className='main_blog_container'>
-                <div className='blog_post_content'>
-                    <div>
-                        <Link to={'/blogpost'}><h2 className='blog_title'>15 Disadvantages Of Freedom And How You Can Workaround It.</h2></Link>
-                        <p className='thumb_content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum <Link to={'/blogpost'}><span class="p2">...read more</span></Link></p>
+                <div className='blog_post_content2'>
+                    <div className='blog_content'>
+                        <Link to={'/blogpost'}><h2 className='blog_title'>{data.length != 0 && data[4].title}</h2></Link>
+                        <p className='thumb_content'><Truncate content={data.length != 0 && data[4].body}/><Link to={'/blogpost'}><span class="p2">...read more</span></Link></p>
                         <div className='hashtag'>
-                            <div className='tag_content'>#meditation</div>
-                            <div className='tag_content'>#mentalhealth</div>
-                            <div className='tag_content'>#food</div>
+                            {data.length != 0 && data[4].tag.map((tag) => (<div className='tag_content'>#{tag}</div>))}
                         </div>
                     </div>
                 </div>
-                <div style={{backgroundImage: "url(https://images.pexels.com/photos/356040/pexels-photo-356040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)"}} className='blog_thumbnail2' />
+                <div style={{backgroundImage: `url(${data.length != 0 && data[4].preview})`}} className='blog_thumbnail2' />
                 <div className='data_username'>
-                    <p className='p3'>
+                    <p className='p32'>
                         27 MAY
                     </p>
                     <p className='tag'>@okaforChidex7</p>

@@ -3,7 +3,7 @@ import darkBlue from '../../../assets/hero/Dark blue home screen aesthetic.jpeg'
 import { Link } from 'react-router-dom'
 import { data } from './testData'
 
-const HeroTrending = () => {
+const HeroTrending = ({data}) => {
     const [index, setIndex] = useState(0)
 
     useEffect(() => {
@@ -25,8 +25,8 @@ const HeroTrending = () => {
       <div className= "heroDiv" style={{backgroundImage: darkBlue}}> 
             <div className='heroBlogPost'>
             <div>
-            <Link to={'/blogpost'}><h2 className='blog_title'>{data[index].title}</h2></Link>
-                <p className='thumb_content'>{data[index].body}<Link to={'/blogpost'}><span class="p2">...read more</span></Link></p>
+            <Link to={'/blogpost'}><h2 className='blog_title'>{data.length != 0 && data[index].title}</h2></Link>
+                <p className='thumb_content'>{data.length != 0 && data[index].body}<Link to={'/blogpost'}><span class="p2">...read more</span></Link></p>
                 <div className='hashtag'>
                     <div className='tag_content'>#meditation</div>
                     <div className='tag_content'>#mentalhealth</div>
@@ -39,7 +39,7 @@ const HeroTrending = () => {
                     <div className='slide_bar' style={{backgroundColor: index === 2 && "green"}} onClick = {() => setIndex(2)}/>
                 </div>
             </div>
-            <div key={index} style={{backgroundImage: `url(${data[index].thumbnail})`}} className='hero_sliding_image'/>
+            <div key={index} style={{backgroundImage: `url(${data.length != 0 && data[index].preview})`}} className='hero_sliding_image'/>
       </div>
     </div>
   )
