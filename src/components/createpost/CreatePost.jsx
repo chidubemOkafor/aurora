@@ -9,6 +9,7 @@ const CreatePost = () => {
   const [content, setContent] = useState('');
   const [text, setText] = useState('');
   const [tags, setTags] = useState([]);
+  const [preview, setPreview] = useState(null)
 
   const handleSelectTag = () => {
     if (text.trim() !== '') {
@@ -22,18 +23,25 @@ const CreatePost = () => {
     setTags(updatedTags);
   };
 
+
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
       if (tags.length === 0 || content === '') {
         throw new Error("Invalid Input")
       }
-      const body = {
-        title: e.target[0].value,
-        tag: tags,
-        content
-      }
-      const response = await axios.post("http://localhost:8090/api/v1/createPost", body);
+      
+      const formData = new FormData()
+
+      formData.append("image",preview)
+      formData.append("title", e.target[0].value)
+      formData.append("tag", JSON.stringify(tags))
+      formData.append("content", content)
+
+      const response = await axios.post("http://localhost:8090/api/v1/createPost", formData, 
+      { headers: {
+        'Content-Type': 'multipart/form-data'
+      }});
       console.log(response);
     } catch (error) {
       console.error(error);
@@ -68,10 +76,12 @@ const CreatePost = () => {
   return (
     <div className="banner_tops">
       <form onSubmit={handleSubmit}>
-        <div style={{ marginTop: 200 }}>
+        <label style={{ marginTop: 200 }}>
+          <l1 className="formTitle">Title</l1> <br/>
           <input type='text' style={{ width: 777 }} placeholder="Enter title" required/>
-        </div>
-        <div style={{ marginTop: 30 }}>
+        </label>
+        <label style={{ marginTop: 30 }}>
+        <l1 className="formTitle">Tag</l1> <br/>
           <input
             type='text'
             style={{ width: 620 }}
@@ -91,7 +101,13 @@ const CreatePost = () => {
               </div>
             ))}
           </div>
-        </div>
+        </label>
+        <label>
+        <l1 className="formTitle">Preview</l1> <br/>
+        <input className='inputImage' type='file' accept='image/*' required onChange={(e) => setPreview(e.target.files[0])}/>
+        </label>
+        <label>
+        <l1 className="formTitle">Post</l1> <br/>
         <ReactQuill
           ref={reactQuillRef}
           className='editor'
@@ -99,6 +115,7 @@ const CreatePost = () => {
           value={content}
           onChange={setContent}
         />
+        </label>
 
         <div className='post_btn'>
           <button className='submit' type='submit'>

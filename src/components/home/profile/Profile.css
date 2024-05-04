@@ -20,12 +20,12 @@
 
 .banner_tops {
     flex-direction: column;
-    width: 100vw;
+    width: 100%;
     border-right: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    max-height: 100vh;
+    height: 100%;
 }
 
 .profile_body {

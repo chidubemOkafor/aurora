@@ -25,18 +25,18 @@ const Sidebar = () => {
         <div onClick={addBlog} className='profile'>S</div>
         <div className='dev'>
           <HiOutlineSearch className='search'/>
-          <p>search</p>
+          <p className='sideBarText'>Search</p>
         </div>
   
         <div className='dev'>
           <HiTrendingUp className='uptrend'/>
-          <p>trending</p>
+          <p className='sideBarText'>Trending</p>
         </div>
         </div>
         
         <div className='dev'>
           <Link to={'/createpost'}><IoMdAddCircleOutline className='circle'/></Link>
-          <p>create</p>
+          <p className='sideBarText'>Create</p>
         </div>
 
         </div>

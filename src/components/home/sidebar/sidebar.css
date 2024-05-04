@@ -18,8 +18,13 @@
     cursor: pointer;
 }
 
+.sideBarText{
+    color: white;
+}
+
 .sidebar {
     border: 1px solid #6EEB83;
+    position: sticky;
     border-left: none;
     border-top: none;
     border-bottom: none;
